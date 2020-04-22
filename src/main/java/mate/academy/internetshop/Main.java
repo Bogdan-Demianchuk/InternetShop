@@ -19,17 +19,19 @@ public class Main {
         OrderService orderService = (OrderService) injector.getInstance(OrderService.class);
         UserService userService = (UserService) injector.getInstance(UserService.class);
         initializeDb(itemService, buckedService, orderService, userService);
-        System.out.println(orderService.allOrders());
-        System.out.println(buckedService.allBuckets());
-        List<Item> allItems = itemService.getAll();
-        allItems.forEach(System.out::println);
+        orderService.allOrders().forEach(System.out::println);
+        System.out.println();
+        buckedService.allBuckets().forEach(System.out::println);
+        System.out.println();
+        itemService.getAllItems().forEach(System.out::println);
+        System.out.println();
+        userService.getAllUsers().forEach(System.out::println);
         itemService.delete(2L);
         Item item4 = new Item("Lens X30.3", BigDecimal.valueOf(30.3));
         item4.setItemId(3L);
         itemService.update(item4);
-        allItems = itemService.getAll();
         System.out.println();
-        allItems.forEach(System.out::println);
+        itemService.getAllItems().forEach(System.out::println);
     }
 
     private static void initializeDb(ItemService itemService,
@@ -42,6 +44,7 @@ public class Main {
         itemService.create(item2);
         itemService.create(item3);
         Bucket bucket = new Bucket(userService.setName("Zina"));
+        Bucket bucket2 = new Bucket(userService.setName("Sveta"));
         buckedService.addItem(bucket, item1.getItemId());
         orderService.makeOrder(bucket);
     }

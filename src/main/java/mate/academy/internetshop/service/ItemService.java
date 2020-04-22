@@ -14,6 +14,6 @@ public interface ItemService {
 
     Item get(Long id);
 
-    List<Item> getAll();
+    List<Item> getAllItems();
 
 }

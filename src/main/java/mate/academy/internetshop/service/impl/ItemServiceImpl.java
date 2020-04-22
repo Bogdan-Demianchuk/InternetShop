@@ -41,7 +41,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public List<Item> getAll() {
+    public List<Item> getAllItems() {
         return Storage.items;
     }
 }
