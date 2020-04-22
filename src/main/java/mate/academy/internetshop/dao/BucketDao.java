@@ -1,10 +1,18 @@
 package mate.academy.internetshop.dao;
 
+import java.util.List;
 import mate.academy.internetshop.model.Bucket;
 
 public interface BucketDao {
-    //crud
-    Bucket create (Bucket bucket);
+    Bucket create(Bucket bucket);
+
     Bucket get(Long buckedId);
+
     Bucket update(Bucket bucket);
+
+    boolean delete(Long bucketId);
+
+    boolean delete(Bucket bucket);
+
+    List<Bucket> getAll();
 }

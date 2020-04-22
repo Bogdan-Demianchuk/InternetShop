@@ -1,13 +1,10 @@
 package mate.academy.internetshop.service;
 
-import mate.academy.internetshop.model.Item;
-
 import java.util.List;
+import mate.academy.internetshop.model.Item;
 
 public interface ItemService {
     Item create(Item item);
-
-    Item get(Long id);
 
     Item update(Item item);
 
@@ -15,8 +12,8 @@ public interface ItemService {
 
     boolean delete(Item item);
 
-    List<Item> getAll();
+    Item get(Long id);
 
-    List<Item> getAllAvailable();
+    List<Item> getAll();
 
 }
