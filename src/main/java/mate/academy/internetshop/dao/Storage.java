@@ -17,7 +17,7 @@ public class Storage {
     public static Long orderId = 0L;
     public static Long productId = 0L;
 
-    public static void addItem(Product product) {
+    public static void addProduct(Product product) {
         productId++;
         product.setProductId(productId);
         prodacts.add(product);
