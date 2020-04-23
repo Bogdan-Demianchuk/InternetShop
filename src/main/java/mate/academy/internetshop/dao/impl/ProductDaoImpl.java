@@ -24,7 +24,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public List<Product> getAll() {
+    public List<Product> getAllProducts() {
         return Storage.prodacts;
     }
 
