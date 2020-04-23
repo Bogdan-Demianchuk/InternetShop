@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
-    private Long bucketId;
+    private Long shoppingCartId;
     private User user;
     private List<Product> products = new ArrayList<>();
 
@@ -12,12 +12,12 @@ public class ShoppingCart {
         this.user = user;
     }
 
-    public Long getBucketId() {
-        return bucketId;
+    public Long getShoppingCartId() {
+        return shoppingCartId;
     }
 
-    public void setBucketId(Long bucketId) {
-        this.bucketId = bucketId;
+    public void setShoppingCartId(Long shoppingCartId) {
+        this.shoppingCartId = shoppingCartId;
     }
 
     public User getUser() {
@@ -38,7 +38,7 @@ public class ShoppingCart {
 
     @Override
     public String toString() {
-        return "Bucket{" + "bucketId=" + bucketId + ", user="
+        return "Bucket{" + "bucketId=" + shoppingCartId + ", user="
                 + user + ", items=" + products + ", orderId=" + '}';
     }
 }

@@ -3,7 +3,7 @@ package mate.academy.internetshop.model;
 import java.math.BigDecimal;
 
 public class Product {
-    private Long id;
+    private Long productId;
     private String name;
     private BigDecimal price;
 
@@ -14,15 +14,15 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Poduct{" + "id=" + id + ", name='" + name + '\'' + ", price=" + price + '}';
+        return "Poduct{" + "id=" + productId + ", name='" + name + '\'' + ", price=" + price + '}';
     }
 
     public Long getProductId() {
-        return id;
+        return productId;
     }
 
     public void setProductId(Long id) {
-        this.id = id;
+        this.productId = id;
     }
 
     public String getName() {
