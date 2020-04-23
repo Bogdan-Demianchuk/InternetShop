@@ -18,7 +18,7 @@ public class Main {
         Product product4 = new Product("Lens X30.3", BigDecimal.valueOf(30.3));
         product4.setProductId(3L);
         productService.update(product4);
-        System.out.println();
+        System.out.println( );
         Storage.products.forEach(System.out::println);
     }
 
