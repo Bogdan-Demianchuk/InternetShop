@@ -10,7 +10,7 @@ public interface OrderDao {
 
     Optional<Order> get(Long orderId);
 
-    List<Order> getAll();
+    List<Order> getAllOrders();
 
     Order update(Order order);
 

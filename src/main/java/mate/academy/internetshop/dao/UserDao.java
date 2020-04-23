@@ -10,7 +10,7 @@ public interface UserDao {
 
     Optional<User> get(Long userId);
 
-    List<User> getAll();
+    List<User> getAllUsers();
 
     User update(User user);
 

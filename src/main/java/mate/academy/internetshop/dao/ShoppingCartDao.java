@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.Optional;
 import mate.academy.internetshop.model.ShoppingCart;
 
-    public interface ShoppingCartDao {
+public interface ShoppingCartDao {
 
-        ShoppingCart create(ShoppingCart shoppingCart);
+    ShoppingCart create(ShoppingCart shoppingCart);
 
-        Optional<ShoppingCart> get(Long shoppingCartId);
+    Optional<ShoppingCart> get(Long shoppingCartId);
 
-        List<ShoppingCart> getAll();
+    List<ShoppingCart> getAllShoppingCart();
 
-        ShoppingCart update(ShoppingCart shoppingCart);
+    ShoppingCart update(ShoppingCart shoppingCart);
 
-        boolean delete(Long shoppingCartId);
-    }
+    boolean delete(Long shoppingCartId);
+}

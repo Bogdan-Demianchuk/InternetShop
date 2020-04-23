@@ -8,7 +8,7 @@ public interface UserService {
 
     User get(Long id);
 
-    List<User> getAll();
+    List<User> getAllUsers();
 
     User update(User user);
 

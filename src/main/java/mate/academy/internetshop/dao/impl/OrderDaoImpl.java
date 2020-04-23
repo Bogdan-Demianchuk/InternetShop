@@ -24,14 +24,14 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public List<Order> getAll() {
+    public List<Order> getAllOrders() {
         return Storage.orders;
     }
 
     @Override
     public Order update(Order order) {
         IntStream.range(0, Storage.orders.size())
-                .filter(x -> order.getOrderId().equals(Storage.shoppingCarts.get(x).getShoppingCartId()))
+                .filter(x -> order.getOrderId().equals(Storage.orders.get(x).getOrderId()))
                 .forEach(i -> Storage.orders.set(i, order));
         return order;
     }

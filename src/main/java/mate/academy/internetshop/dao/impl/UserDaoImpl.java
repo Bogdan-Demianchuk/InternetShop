@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<User> getAll() {
+    public List<User> getAllUsers() {
         return Storage.users;
     }
 

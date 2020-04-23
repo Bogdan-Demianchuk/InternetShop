@@ -25,14 +25,15 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     }
 
     @Override
-    public List<ShoppingCart> getAll() {
+    public List<ShoppingCart> getAllShoppingCart() {
         return Storage.shoppingCarts;
     }
 
     @Override
     public ShoppingCart update(ShoppingCart shoppingCart) {
         IntStream.range(0, Storage.shoppingCarts.size())
-                .filter(x -> shoppingCart.getShoppingCartId().equals(Storage.shoppingCarts.get(x).getShoppingCartId()))
+                .filter(x -> shoppingCart.getShoppingCartId()
+                        .equals(Storage.shoppingCarts.get(x).getShoppingCartId()))
                 .forEach(i -> Storage.shoppingCarts.set(i, shoppingCart));
         return shoppingCart;
     }
