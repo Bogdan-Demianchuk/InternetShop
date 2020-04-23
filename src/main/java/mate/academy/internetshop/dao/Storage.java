@@ -11,7 +11,7 @@ public class Storage {
     public static final List<User> users = new ArrayList<>();
     public static final List<ShoppingCart> shoppingCarts = new ArrayList<>();
     public static final List<Order> orders = new ArrayList<>();
-    public static final List<Product> prodacts = new ArrayList<>();
+    public static final List<Product> products = new ArrayList<>();
     public static Long userId = 0L;
     public static Long shoppingCartId = 0L;
     public static Long orderId = 0L;
@@ -20,7 +20,7 @@ public class Storage {
     public static void addProduct(Product product) {
         productId++;
         product.setProductId(productId);
-        prodacts.add(product);
+        products.add(product);
     }
 
     public static void addUser(User user) {

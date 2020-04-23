@@ -12,14 +12,14 @@ public class Main {
     public static void main(String[] args) {
         ProductService productService = (ProductService) injector.getInstance(ProductService.class);
         initializeDb(productService);
-        Storage.prodacts.forEach(System.out::println);
+        Storage.products.forEach(System.out::println);
         System.out.println();
         productService.delete(2L);
         Product product4 = new Product("Lens X30.3", BigDecimal.valueOf(30.3));
         product4.setProductId(3L);
         productService.update(product4);
         System.out.println();
-        Storage.prodacts.forEach(System.out::println);
+        Storage.products.forEach(System.out::println);
     }
 
     private static void initializeDb(ProductService productService) {
