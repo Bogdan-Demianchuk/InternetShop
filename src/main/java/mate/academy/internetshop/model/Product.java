@@ -2,26 +2,26 @@ package mate.academy.internetshop.model;
 
 import java.math.BigDecimal;
 
-public class Item {
+public class Product {
     private Long id;
     private String name;
     private BigDecimal price;
 
-    public Item(String name, BigDecimal price) {
+    public Product(String name, BigDecimal price) {
         this.name = name;
         this.price = price;
     }
 
     @Override
     public String toString() {
-        return "Item{" + "id=" + id + ", name='" + name + '\'' + ", price=" + price + '}';
+        return "Poduct{" + "id=" + id + ", name='" + name + '\'' + ", price=" + price + '}';
     }
 
-    public Long getItemId() {
+    public Long getProductId() {
         return id;
     }
 
-    public void setItemId(Long id) {
+    public void setProductId(Long id) {
         this.id = id;
     }
 

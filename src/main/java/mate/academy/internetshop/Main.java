@@ -2,8 +2,7 @@ package mate.academy.internetshop;
 
 import java.math.BigDecimal;
 import mate.academy.internetshop.lib.Injector;
-import mate.academy.internetshop.model.Bucket;
-import mate.academy.internetshop.model.Item;
+import mate.academy.internetshop.model.Product;
 import mate.academy.internetshop.service.ItemService;
 
 public class Main {
@@ -12,23 +11,23 @@ public class Main {
     public static void main(String[] args) {
         ItemService itemService = (ItemService) injector.getInstance(ItemService.class);
         initializeDb(itemService);
-        itemService.getAllItems().forEach(System.out::println);
+        itemService.getAllProducts().forEach(System.out::println);
         System.out.println();
         itemService.delete(2L);
-        Item item4 = new Item("Lens X30.3", BigDecimal.valueOf(30.3));
-        item4.setItemId(3L);
-        itemService.update(item4);
+        Product product4 = new Product("Lens X30.3", BigDecimal.valueOf(30.3));
+        product4.setProductId(3L);
+        itemService.update(product4);
         System.out.println();
-        itemService.getAllItems().forEach(System.out::println);
+        itemService.getAllProducts().forEach(System.out::println);
     }
 
     private static void initializeDb(ItemService itemService) {
-        Item item1 = new Item("Lens X10", BigDecimal.valueOf(10));
-        Item item2 = new Item("Lens X20", BigDecimal.valueOf(20));
-        Item item3 = new Item("Lens X30", BigDecimal.valueOf(30));
-        itemService.create(item1);
-        itemService.create(item2);
-        itemService.create(item3);
+        Product product1 = new Product("Lens X10", BigDecimal.valueOf(10));
+        Product product2 = new Product("Lens X20", BigDecimal.valueOf(20));
+        Product product3 = new Product("Lens X30", BigDecimal.valueOf(30));
+        itemService.create(product1);
+        itemService.create(product2);
+        itemService.create(product3);
 
     }
 }

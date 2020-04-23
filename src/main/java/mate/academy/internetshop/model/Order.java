@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Order {
     private User user;
-    private List<Item> items;
+    private List<Product> products;
     private Long orderId;
 
-    public Order(User user, List<Item> items, Long orderId) {
+    public Order(User user, List<Product> products, Long orderId) {
         this.user = user;
-        this.items = items;
+        this.products = products;
         this.orderId = orderId;
     }
 
@@ -24,15 +24,15 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" + "user=" + user + ", items="
-                + items + ", orderId=" + orderId + '}';
+                + products + ", orderId=" + orderId + '}';
     }
 
-    public List<Item> getItems() {
-        return items;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public Long getOrderId() {

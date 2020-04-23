@@ -6,7 +6,7 @@ import java.util.List;
 public class Bucket {
     private Long bucketId;
     private User user;
-    private List<Item> items = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
     public Bucket(User user) {
         this.user = user;
@@ -28,17 +28,17 @@ public class Bucket {
         this.user = user;
     }
 
-    public List<Item> getItems() {
-        return items;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     @Override
     public String toString() {
         return "Bucket{" + "bucketId=" + bucketId + ", user="
-                + user + ", items=" + items + ", orderId=" + '}';
+                + user + ", items=" + products + ", orderId=" + '}';
     }
 }
