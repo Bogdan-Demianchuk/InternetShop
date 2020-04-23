@@ -5,40 +5,30 @@ import mate.academy.internetshop.dao.ProductDao;
 import mate.academy.internetshop.lib.Inject;
 import mate.academy.internetshop.lib.Service;
 import mate.academy.internetshop.model.Product;
-import mate.academy.internetshop.service.ItemService;
+import mate.academy.internetshop.service.ProductService;
 
 @Service
-public class ItemServiceImpl implements ItemService {
+public class ProductServiceImpl implements ProductService {
     @Inject
-    private ProductDao itemDao;
+    private ProductDao productDao;
 
     @Override
     public Product create(Product product) {
-        return itemDao.create(product);
+        return productDao.create(product);
     }
 
     @Override
     public Product get(Long id) {
-        return itemDao.get(id).get();
+        return productDao.get(id).get();
     }
 
     @Override
     public Product update(Product product) {
-        return itemDao.update(product);
+        return productDao.update(product);
     }
 
     @Override
     public boolean delete(Long id) {
-        return itemDao.delete(id);
-    }
-
-    @Override
-    public boolean delete(Product product) {
-        return itemDao.delete(product);
-    }
-
-    @Override
-    public List<Product> getAllProducts() {
-        return itemDao.getAll();
+        return productDao.delete(id);
     }
 }

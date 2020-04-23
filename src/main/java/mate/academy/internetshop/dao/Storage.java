@@ -2,14 +2,14 @@ package mate.academy.internetshop.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import mate.academy.internetshop.model.Bucket;
+import mate.academy.internetshop.model.ShoppingCart;
 import mate.academy.internetshop.model.Product;
 import mate.academy.internetshop.model.Order;
 import mate.academy.internetshop.model.User;
 
 public class Storage {
     public static final List<User> users = new ArrayList<>();
-    public static final List<Bucket> buckets = new ArrayList<>();
+    public static final List<ShoppingCart> shoppingCarts = new ArrayList<>();
     public static final List<Order> orders = new ArrayList<>();
     public static final List<Product> prodacts = new ArrayList<>();
     public static Long userId = 0L;
@@ -29,10 +29,10 @@ public class Storage {
         users.add(user);
     }
 
-    public static void addBucket(Bucket bucket) {
+    public static void addBucket(ShoppingCart shoppingCart) {
         bucketId++;
-        bucket.setBucketId(bucketId);
-        buckets.add(bucket);
+        shoppingCart.setBucketId(bucketId);
+        shoppingCarts.add(shoppingCart);
     }
 
     public static void addOrder(Order order) {
