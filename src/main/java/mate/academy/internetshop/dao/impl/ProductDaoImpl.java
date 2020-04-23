@@ -12,7 +12,7 @@ import mate.academy.internetshop.model.Product;
 public class ProductDaoImpl implements ProductDao {
     @Override
     public Product create(Product product) {
-        Storage.addItem(product);
+        Storage.addProduct(product);
         return product;
     }
 
@@ -37,7 +37,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public boolean delete(Long itemId) {
-        return Storage.prodacts.removeIf(i -> i.getProductId().equals(itemId));
+    public boolean delete(Long productId) {
+        return Storage.prodacts.removeIf(i -> i.getProductId().equals(productId));
     }
 }

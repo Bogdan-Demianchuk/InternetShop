@@ -8,12 +8,12 @@ public interface ProductDao {
 
     Product create(Product product);
 
-    Optional<Product> get(Long id);
+    Optional<Product> get(Long productId);
 
     List<Product> getAll();
 
     Product update(Product product);
 
-    boolean delete(Long id);
+    boolean delete(Long productId);
 
 }
