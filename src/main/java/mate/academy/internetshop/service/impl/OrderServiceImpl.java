@@ -10,11 +10,15 @@ import mate.academy.internetshop.model.Order;
 import mate.academy.internetshop.model.Product;
 import mate.academy.internetshop.model.User;
 import mate.academy.internetshop.service.OrderService;
+import mate.academy.internetshop.service.ShoppingCartService;
 
 @Service
 public class OrderServiceImpl implements OrderService {
     @Inject
     private OrderDao orderDao;
+
+    @Inject
+    private ShoppingCartService shoppingCartService;
 
     @Inject
     private ShoppingCartDao shoppingCartDao;
@@ -23,16 +27,16 @@ public class OrderServiceImpl implements OrderService {
     public Order completeOrder(List<Product> products, User user) {
         Order order = new Order(user, products);
         orderDao.create(order);
-        shoppingCartDao.delete(shoppingCartDao.getAllShoppingCart().stream()
+        shoppingCartService.clear(shoppingCartDao.getAllShoppingCart().stream()
                 .filter(s -> s.getUser().equals(user))
-                .findFirst().get().getShoppingCartId());
+                .findFirst().get());
         return null;
     }
 
     @Override
     public List<Order> getUserOrders(User user) {
         return orderDao.getAllOrders().stream()
-                .filter(s -> s.getUser().equals(user))
+                .filter(s -> s.getUser().getUserId().equals(user.getUserId()))
                 .collect(Collectors.toList());
     }
 

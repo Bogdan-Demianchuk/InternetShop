@@ -16,14 +16,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public ShoppingCart addProduct(ShoppingCart shoppingCart, Product product) {
-        shoppingCartDao.get(shoppingCart.getShoppingCartId()).get().getProducts().add(product);
+        shoppingCart.getProducts().add(product);
         return shoppingCartDao.update(shoppingCart);
     }
 
     @Override
     public boolean deleteProduct(ShoppingCart shoppingCart, Product product) {
-        boolean result = shoppingCartDao.get(shoppingCart.getShoppingCartId()).get().getProducts()
-                .removeIf(x -> x.getProductId().equals(product.getProductId()));
+        boolean result = shoppingCart.getProducts().remove(product);
         if (result) {
             shoppingCartDao.update(shoppingCart);
         }
@@ -32,7 +31,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void clear(ShoppingCart shoppingCart) {
-        shoppingCartDao.get(shoppingCart.getShoppingCartId()).get().getProducts().clear();
+        shoppingCart.getProducts().clear();
         shoppingCartDao.update(shoppingCart);
     }
 
