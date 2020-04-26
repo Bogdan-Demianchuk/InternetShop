@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService {
     public Order completeOrder(List<Product> products, User user) {
         Order order = new Order(user, products);
         orderDao.create(order);
-        shoppingCartService.clear(shoppingCartDao.getAllShoppingCart().stream()
+        shoppingCartService.clear(shoppingCartDao.getAll().stream()
                 .filter(s -> s.getUser().equals(user))
                 .findFirst().get());
         return null;
@@ -35,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> getUserOrders(User user) {
-        return orderDao.getAllOrders().stream()
+        return orderDao.getAll().stream()
                 .filter(s -> s.getUser().getUserId().equals(user.getUserId()))
                 .collect(Collectors.toList());
     }
@@ -47,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> getAllOrders() {
-        return orderDao.getAllOrders();
+        return orderDao.getAll();
     }
 
     @Override
