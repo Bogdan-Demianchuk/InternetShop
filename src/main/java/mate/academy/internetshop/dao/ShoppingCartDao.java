@@ -2,17 +2,10 @@ package mate.academy.internetshop.dao;
 
 import java.util.List;
 import java.util.Optional;
+
+import mate.academy.internetshop.model.Product;
 import mate.academy.internetshop.model.ShoppingCart;
 
-public interface ShoppingCartDao {
+public interface ShoppingCartDao extends GenericDao<ShoppingCart, Long>{
 
-    ShoppingCart create(ShoppingCart shoppingCart);
-
-    Optional<ShoppingCart> get(Long shoppingCartId);
-
-    List<ShoppingCart> getAllShoppingCart();
-
-    ShoppingCart update(ShoppingCart shoppingCart);
-
-    boolean delete(Long shoppingCartId);
 }

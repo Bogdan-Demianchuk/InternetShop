@@ -1,16 +1,12 @@
 package mate.academy.internetshop.service;
 
 import java.util.List;
+
+import mate.academy.internetshop.model.Product;
 import mate.academy.internetshop.model.User;
 
-public interface UserService {
+public interface UserService extends GenericService<User, Long>{
     User create(User user);
 
-    User get(Long id);
-
-    List<User> getAllUsers();
-
     User update(User user);
-
-    boolean delete(Long id);
 }
