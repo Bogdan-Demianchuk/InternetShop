@@ -28,7 +28,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>registration</servlet-name>
-        <url-pattern>/registration</url-pattern>
+        <url-pattern>/users/registration</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -47,5 +47,32 @@
     <servlet-mapping>
         <servlet-name>deleteUser</servlet-name>
         <url-pattern>/deleteUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>products</servlet-name>
+        <servlet-class>mate.academy.internetshop.controllers.ProductsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>products</servlet-name>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteProduct</servlet-name>
+        <servlet-class>mate.academy.internetshop.controllers.DeleteProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteProduct</servlet-name>
+        <url-pattern>/deleteProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addProduct</servlet-name>
+        <servlet-class>mate.academy.internetshop.controllers.AddProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addProduct</servlet-name>
+        <url-pattern>/products/add</url-pattern>
     </servlet-mapping>
 </web-app>
