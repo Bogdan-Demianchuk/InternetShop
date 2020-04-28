@@ -1,6 +1,5 @@
 package mate.academy.internetshop;
 
-import java.math.BigDecimal;
 import mate.academy.internetshop.dao.Storage;
 import mate.academy.internetshop.lib.Injector;
 import mate.academy.internetshop.model.Product;

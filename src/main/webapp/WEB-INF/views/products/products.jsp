@@ -6,6 +6,7 @@
     <title>Products</title>
 </head>
 <body>
+<div class="container">
 <h1>All products</h1>
 <p><a href="${pageContext.request.contextPath}/InjectData">Generate a test data</a></p>
 <p><a href="${pageContext.request.contextPath}/products">to all products</a></p>
@@ -29,17 +30,15 @@
                 <c:out value="${product.price}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/deleteProduct?id=${product.productId}">Delete</a>
+                <a href="${pageContext.request.contextPath}/products/addtocard?id=${product.productId}">Add to shopping card</a>
+            </td>
+            <td>
+                <a href="${pageContext.request.contextPath}/deleteProduct?id=${product.productId}">Delete from shop</a>
             </td>
         </tr>
     </c:forEach>
 </table>
-<h3>Add product</h3>
-
-<form method="post" action="${pageContext.request.contextPath}/products/add">
-    Name <input type="text" name="name">
-    Prise <input type="text" name="price">
-    <button type="submit" >Add product</button>
-</form>
+<button><a href="${pageContext.request.contextPath}/products/add">Add new product</a></button>
+</div>
 </body>
 </html>

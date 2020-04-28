@@ -7,12 +7,8 @@ public class User {
     private String login;
     private String password;
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public User(String name) {
+        this.name = name;
     }
 
     public User(String name, String login, String password) {
@@ -21,8 +17,12 @@ public class User {
         this.password = password;
     }
 
-    public User(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

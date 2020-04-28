@@ -6,11 +6,12 @@
     <title>All users</title>
 </head>
 <body>
+<div class="container">
+    <h1>All users</h1>
 <p><a href="${pageContext.request.contextPath}/InjectData">Generate a test data</a></p>
 <p><a href="${pageContext.request.contextPath}/products">to all products</a></p>
 <p><a href="${pageContext.request.contextPath}/users/all">to all users</a></p>
 <p><a href="${pageContext.request.contextPath}/">to First page</a></p>
-<h1>All users</h1>
 <table border="1">
     <tr>
         <th>ID</th>
@@ -30,6 +31,6 @@
         </tr>
     </c:forEach>
 </table>
-
+</div>
 </body>
 </html>

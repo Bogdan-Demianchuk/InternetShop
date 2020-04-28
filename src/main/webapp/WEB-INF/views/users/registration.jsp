@@ -6,17 +6,19 @@
     <title>Registration</title>
 </head>
 <body>
+<div class="container">
 <h1>Registration!</h1>
 <p><a href="${pageContext.request.contextPath}/InjectData">Generate a test data</a></p>
 <p><a href="${pageContext.request.contextPath}/products">to all products</a></p>
 <p><a href="${pageContext.request.contextPath}/users/all">to all users</a></p>
 <p><a href="${pageContext.request.contextPath}/">to First page</a></p>
 <form method="post" action="${pageContext.request.contextPath}/users/registration">
-    Login <input type="text" name="login">
-    Password <input type="password" name="pwd">
-    Repeat your password <input type="password" name="pwd-re">
+    Login <input required type="text" name="login">
+    Password <input required type="password" name="pwd">
+    Repeat your password <input required type="password" name="pwd-re">
 <button type="submit">Register</button>
     <h4 style="color:orangered">${massage}</h4>
 </form>
+</div>
 </body>
 </html>

@@ -1,21 +1,24 @@
 package mate.academy.internetshop.controllers;
 
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import mate.academy.internetshop.lib.Injector;
 import mate.academy.internetshop.model.Product;
+import mate.academy.internetshop.model.ShoppingCart;
 import mate.academy.internetshop.model.User;
 import mate.academy.internetshop.service.ProductService;
+import mate.academy.internetshop.service.ShoppingCartService;
 import mate.academy.internetshop.service.UserService;
 
 public class InjectDataController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate.academy.internetshop");
     UserService userService = (UserService) injector.getInstance(UserService.class);
     ProductService productService = (ProductService) injector.getInstance(ProductService.class);
-
+    ShoppingCartService shoppingCartService =
+            (ShoppingCartService) injector.getInstance(ShoppingCartService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -29,17 +32,23 @@ public class InjectDataController extends HttpServlet {
         productService.create(product3);
         productService.create(product4);
         User user = new User("Kolia");
-        User user1 = new User("Olia");
-        User user2 = new User("Zoia");
-        User user3 = new User("Lena");
-        User user4 = new User("Roma");
-        User user5 = new User("Kolia");
         userService.create(user);
+        shoppingCartService.create(new ShoppingCart(user));
+        User user1 = new User("Olia");
         userService.create(user1);
+        shoppingCartService.create(new ShoppingCart(user1));
+        User user2 = new User("Zoia");
         userService.create(user2);
+        shoppingCartService.create(new ShoppingCart(user2));
+        User user3 = new User("Lena");
         userService.create(user3);
+        shoppingCartService.create(new ShoppingCart(user3));
+        User user4 = new User("Roma");
         userService.create(user4);
+        User user5 = new User("Kolia");
+        shoppingCartService.create(new ShoppingCart(user4));
         userService.create(user5);
+        shoppingCartService.create(new ShoppingCart(user5));
         req.getRequestDispatcher("/WEB-INF/views/users/InjectData.jsp").forward(req, resp);
     }
 }

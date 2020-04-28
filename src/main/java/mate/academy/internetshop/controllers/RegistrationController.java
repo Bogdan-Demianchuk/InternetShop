@@ -1,17 +1,21 @@
 package mate.academy.internetshop.controllers;
 
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import mate.academy.internetshop.lib.Injector;
+import mate.academy.internetshop.model.ShoppingCart;
 import mate.academy.internetshop.model.User;
+import mate.academy.internetshop.service.ShoppingCartService;
 import mate.academy.internetshop.service.UserService;
 
 public class RegistrationController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate.academy.internetshop");
     UserService userService = (UserService) injector.getInstance(UserService.class);
+    ShoppingCartService shoppingCartService =
+            (ShoppingCartService) injector.getInstance(ShoppingCartService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -26,7 +30,9 @@ public class RegistrationController extends HttpServlet {
         String password = req.getParameter("pwd");
         String passwordRe = req.getParameter("pwd-re");
         if (password.equals(passwordRe)) {
-            userService.create(new User(login, login, password));
+            User user = new User(login, login, password);
+            userService.create(user);
+            shoppingCartService.create(new ShoppingCart(user));
             resp.sendRedirect(req.getContextPath() + "/");
         } else {
             req.setAttribute("massage", "Passwords are not the same, please write correct");
