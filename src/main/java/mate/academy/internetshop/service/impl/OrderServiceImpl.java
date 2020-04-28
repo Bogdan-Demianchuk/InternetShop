@@ -26,11 +26,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order completeOrder(List<Product> products, User user) {
         Order order = new Order(user, products);
-        orderDao.create(order);
         shoppingCartService.clear(shoppingCartDao.getAll().stream()
                 .filter(s -> s.getUser().equals(user))
                 .findFirst().get());
-        return null;
+        return orderDao.create(order);
     }
 
     @Override

@@ -3,35 +3,36 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Products in shopping cart ${userName}</title>
+    <title>All Orders</title>
 </head>
 <body>
 <div class="container">
-    <h1>All products in shopping cart ${userName}</h1>
+    <h1>All Orders</h1>
     <p><a href="${pageContext.request.contextPath}/InjectData">Generate a test data</a></p>
     <p><a href="${pageContext.request.contextPath}/products">to all products</a></p>
     <p><a href="${pageContext.request.contextPath}/users/all">to all users</a></p>
     <p><a href="${pageContext.request.contextPath}/">to First page</a></p>
     <table border="1">
         <tr>
-            <th>product ID</th>
-            <th>product name</th>
-            <th>product price</th>
+            <th>Order ID</th>
+            <th>Order name</th>
+            <th>products in order</th>
             <th></th>
         </tr>
-        <c:forEach var="product" items="${allProducts}">
+        <c:forEach var="order" items="${allOrders}">
             <tr>
                 <td>
-                    <c:out value="${product.productId}"/>
+                    <c:out value="${order.orderId}"/>
                 </td>
                 <td>
-                    <c:out value="${product.name}"/>
+                    <c:out value="${order.user.name}"/>
                 </td>
                 <td>
-                    <c:out value="${product.price}"/>
+                    <a href="${pageContext.request.contextPath}/vieworder?id=${order.orderId}"><button type="button">View order</button></a>
+
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/deleteProduct?id=${product.productId}">Delete from shop</a>
+                    <a href="${pageContext.request.contextPath}/shoppingcart/deleteproduct?id=${product.productId}"><button type="button">Delete order</button></a>
                 </td>
             </tr>
         </c:forEach>

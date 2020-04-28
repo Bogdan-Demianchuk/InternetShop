@@ -26,7 +26,7 @@
                 <c:out value="${user.name}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/deleteUser?id=${user.userId}">Delete</a>
+                <a href="${pageContext.request.contextPath}/deleteUser?id=${user.userId}"><button>Delete</button></a>
             </td>
         </tr>
     </c:forEach>

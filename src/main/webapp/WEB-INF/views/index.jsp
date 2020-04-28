@@ -11,7 +11,8 @@
     <p><a href="${pageContext.request.contextPath}/InjectData">Generate a test data</a></p>
     <p><a href="${pageContext.request.contextPath}/products">to all products</a></p>
     <p><a href="${pageContext.request.contextPath}/users/all">to all users</a></p>
-    <p><a href="${pageContext.request.contextPath}/">to first page</a></p>
+    <p><a href="${pageContext.request.contextPath}/allorders">to all orders</a></p>
+    <p><a href="${pageContext.request.contextPath}/shoppingcart">to shopping cart</a></p>
     <p><a href="${pageContext.request.contextPath}/users/registration">registration</a></p>
 </div>
 </body>

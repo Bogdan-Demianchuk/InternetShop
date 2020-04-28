@@ -12,7 +12,7 @@
 <p><a href="${pageContext.request.contextPath}/products">to all products</a></p>
 <p><a href="${pageContext.request.contextPath}/users/all">to all users</a></p>
 <p><a href="${pageContext.request.contextPath}/">to First page</a></p>
-<table border="1">
+<table>
     <tr>
         <th>ID</th>
         <th>Product name</th>
@@ -30,15 +30,15 @@
                 <c:out value="${product.price}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/products/addtocard?id=${product.productId}">Add to shopping card</a>
+                <a href="${pageContext.request.contextPath}/products/addtocart?id=${product.productId}"><button>Add to shopping card</button></a>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/deleteProduct?id=${product.productId}">Delete from shop</a>
+                <a href="${pageContext.request.contextPath}/deleteProduct?id=${product.productId}"><button>Delete from shop</button></a>
             </td>
         </tr>
     </c:forEach>
 </table>
-<button><a href="${pageContext.request.contextPath}/products/add">Add new product</a></button>
+<a href="${pageContext.request.contextPath}/products/add"><button>Add new product</button></a>
 </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package mate.academy.internetshop.controllers;
+package mate.academy.internetshop.controllers.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,10 +12,10 @@ import mate.academy.internetshop.service.ShoppingCartService;
 import mate.academy.internetshop.service.UserService;
 
 public class RegistrationController extends HttpServlet {
-    private static final Injector injector = Injector.getInstance("mate.academy.internetshop");
-    UserService userService = (UserService) injector.getInstance(UserService.class);
-    ShoppingCartService shoppingCartService =
-            (ShoppingCartService) injector.getInstance(ShoppingCartService.class);
+    private static final Injector INJECTOR = Injector.getInstance("mate.academy.internetshop");
+    private UserService userService = (UserService) INJECTOR.getInstance(UserService.class);
+    private ShoppingCartService shoppingCartService =
+            (ShoppingCartService) INJECTOR.getInstance(ShoppingCartService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
