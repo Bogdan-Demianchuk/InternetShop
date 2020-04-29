@@ -70,7 +70,7 @@
 
     <servlet>
         <servlet-name>addProductToShop</servlet-name>
-        <servlet-class>mate.academy.internetshop.controllers.shoppingcart.AddProductToShoppingCartController</servlet-class>
+        <servlet-class>mate.academy.internetshop.controllers.product.AddProductToShopController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addProductToShop</servlet-name>
