@@ -32,9 +32,6 @@
             <td>
                 <a href="${pageContext.request.contextPath}/products/addtocart?id=${product.productId}"><button>Add to shopping card</button></a>
             </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/deleteProduct?id=${product.productId}"><button>Delete from shop</button></a>
-            </td>
         </tr>
     </c:forEach>
 </table>

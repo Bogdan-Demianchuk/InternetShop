@@ -1,10 +1,12 @@
 package mate.academy.internetshop.controllers.product;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mate.academy.internetshop.lib.Injector;
+import mate.academy.internetshop.model.Product;
 import mate.academy.internetshop.service.ProductService;
 
 public class DeleteProductController extends HttpServlet {
@@ -18,6 +20,8 @@ public class DeleteProductController extends HttpServlet {
         String productId = req.getParameter("id");
         Long id = Long.valueOf(productId);
         productService.delete(id);
-        resp.sendRedirect(req.getContextPath() + "/products");
+        List<Product> allProducts = productService.getAll();
+        req.setAttribute("allProducts", allProducts);
+        resp.sendRedirect(req.getContextPath() + "products/add");
     }
 }
