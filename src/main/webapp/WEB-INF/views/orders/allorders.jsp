@@ -32,7 +32,7 @@
 
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/shoppingcart/deleteproduct?id=${product.productId}"><button type="button">Delete order</button></a>
+                    <a href="${pageContext.request.contextPath}/deleteorder?id=${order.orderId}"><button type="button">Delete order</button></a>
                 </td>
             </tr>
         </c:forEach>

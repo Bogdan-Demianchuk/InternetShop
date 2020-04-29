@@ -139,4 +139,13 @@
         <servlet-name>viewOrder</servlet-name>
         <url-pattern>/vieworder</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteOrder</servlet-name>
+        <servlet-class>mate.academy.internetshop.controllers.order.DeleteOrderController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteOrder</servlet-name>
+        <url-pattern>/deleteorder</url-pattern>
+    </servlet-mapping>
 </web-app>
