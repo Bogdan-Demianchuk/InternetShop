@@ -17,7 +17,7 @@
         <button type="button" class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath}/users/registration'">Registration</button>
     </div>
     <h1>All products</h1>
-    <a href="${pageContext.request.contextPath}/products/add"><button class="btn btn-primary">Add new product or delete asadmin</button></a>
+    <a href="${pageContext.request.contextPath}/products/add"><button class="btn btn-primary">Add new product or delete as admin</button></a>
 <table class="table table-hover">
     <thead>
     <tr>
