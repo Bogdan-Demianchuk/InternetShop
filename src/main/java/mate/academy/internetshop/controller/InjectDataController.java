@@ -1,4 +1,4 @@
-package mate.academy.internetshop.controllers;
+package mate.academy.internetshop.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -24,14 +24,16 @@ public class InjectDataController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Product product = new Product("Чебрек", 3);
-        Product product2 = new Product("Катлета", 7);
-        Product product3 = new Product("Суп", 11.02);
+        Product product = new Product("Чебрек", 13);
+        Product product2 = new Product("Котлета", 17);
+        Product product3 = new Product("Суп", 11.20);
         Product product4 = new Product("Пюре", 3.50);
+        Product product5 = new Product("Мороженое", 3.50);
         productService.create(product);
         productService.create(product2);
         productService.create(product3);
         productService.create(product4);
+        productService.create(product5);
         User user = new User("Kolia");
         userService.create(user);
         shoppingCartService.create(new ShoppingCart(user));

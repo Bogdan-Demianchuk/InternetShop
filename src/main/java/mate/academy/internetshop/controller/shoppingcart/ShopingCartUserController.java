@@ -1,4 +1,4 @@
-package mate.academy.internetshop.controllers.shoppingcart;
+package mate.academy.internetshop.controller.shoppingcart;
 
 import java.io.IOException;
 import javax.servlet.http.HttpServlet;
