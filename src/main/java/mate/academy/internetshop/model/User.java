@@ -3,8 +3,13 @@ package mate.academy.internetshop.model;
 public class User {
     private Long userId;
     private String name;
+    private String surname;
     private String login;
     private String password;
+
+    public User(String name) {
+        this.name = name;
+    }
 
     public User(String name, String login, String password) {
         this.name = name;
@@ -12,8 +17,12 @@ public class User {
         this.password = password;
     }
 
-    public User(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
