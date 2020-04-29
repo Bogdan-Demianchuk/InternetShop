@@ -5,18 +5,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>All users</title>
 </head>
-<body>
+<body style="margin:70px;">
 <div class="container">
+    <div class="btn-group fixed-top" >
+        <button type="button" class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath}/'">Index</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath}/InjectData'">Generate data</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath}/products'">All products</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath}/users/all'">All users</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath}/allorders'">All orders</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath}/shoppingcart'">Shopping cart</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath}/users/registration'">Registration</button>
+    </div>
     <h1>All users</h1>
-<p><a href="${pageContext.request.contextPath}/InjectData">Generate a test data</a></p>
-<p><a href="${pageContext.request.contextPath}/products">to all products</a></p>
-<p><a href="${pageContext.request.contextPath}/users/all">to all users</a></p>
-<p><a href="${pageContext.request.contextPath}/">to First page</a></p>
-<table border="1">
+    <table class="table table-hover">
+        <thead>
     <tr>
         <th>ID</th>
         <th>Name</th>
     </tr>
+        </thead>
     <c:forEach var="user" items="${allUsers}">
         <tr>
             <td>
@@ -26,7 +33,7 @@
                 <c:out value="${user.name}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/deleteUser?id=${user.userId}"><button>Delete</button></a>
+                <a href="${pageContext.request.contextPath}/deleteUser?id=${user.userId}"><button class="btn btn-secondary">Delete</button></a>
             </td>
         </tr>
     </c:forEach>

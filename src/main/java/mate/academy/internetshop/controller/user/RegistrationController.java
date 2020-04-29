@@ -1,4 +1,4 @@
-package mate.academy.internetshop.controllers.user;
+package mate.academy.internetshop.controller.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -38,6 +38,5 @@ public class RegistrationController extends HttpServlet {
             req.setAttribute("massage", "Passwords are not the same, please write correct");
             req.getRequestDispatcher("/WEB-INF/views/users/registration.jsp").forward(req, resp);
         }
-        System.out.println(login + " " + password + " " + passwordRe);
     }
 }
