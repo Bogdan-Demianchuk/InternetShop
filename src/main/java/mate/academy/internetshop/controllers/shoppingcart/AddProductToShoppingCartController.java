@@ -11,7 +11,8 @@ import mate.academy.internetshop.service.ProductService;
 
 public class AddProductToShoppingCartController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("mate.academy.internetshop");
-    private ProductService productService = (ProductService) INJECTOR.getInstance(ProductService.class);
+    private ProductService productService =
+            (ProductService) INJECTOR.getInstance(ProductService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

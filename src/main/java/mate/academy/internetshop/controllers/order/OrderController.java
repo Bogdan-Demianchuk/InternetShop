@@ -26,14 +26,13 @@ public class OrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<Product> allProductsInOrder = shoppingCartService
-                .getByUserId(USER_ID).getProducts();
         Order order = orderService.completeOrder(shoppingCartService
                 .getByUserId(USER_ID).getProducts(), userService.get(USER_ID));
-        System.out.println(order.getProducts());
         String userName = userService.get(USER_ID).getName();
         Long orderId = order.getOrderId();
         shoppingCartService
+                .getByUserId(USER_ID).getProducts();
+        List<Product> allProductsInOrder = shoppingCartService
                 .getByUserId(USER_ID).getProducts();
         req.setAttribute("orderId", orderId);
         req.setAttribute("userName", userName);

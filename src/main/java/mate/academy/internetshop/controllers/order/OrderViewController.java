@@ -16,7 +16,8 @@ public class OrderViewController extends HttpServlet {
             (OrderService) INJECTOR.getInstance(OrderService.class);
     
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         String id = req.getParameter("id");
         String userName = orderService.get(Long.valueOf(id)).getUser().getName();
         List<Product> allProductsInOrder = orderService.get(Long.valueOf(id)).getProducts();

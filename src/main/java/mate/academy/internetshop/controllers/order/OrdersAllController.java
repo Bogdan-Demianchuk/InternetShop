@@ -16,8 +16,9 @@ public class OrdersAllController extends HttpServlet {
             (OrderService) INJECTOR.getInstance(OrderService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Order> allOrders =  orderService.getAll();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        List<Order> allOrders = orderService.getAll();
         req.setAttribute("allOrders", allOrders);
         req.getRequestDispatcher("/WEB-INF/views/orders/allorders.jsp").forward(req, resp);
     }

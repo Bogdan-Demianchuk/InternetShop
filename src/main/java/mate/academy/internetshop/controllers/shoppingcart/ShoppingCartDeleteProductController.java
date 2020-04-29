@@ -18,7 +18,8 @@ public class ShoppingCartDeleteProductController extends HttpServlet {
             (ProductService) INJECTOR.getInstance(ProductService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         Long productId = Long.valueOf(req.getParameter("id"));
         shoppingCartService.deleteProducts(shoppingCartService.getByUserId(USER_ID),
                 productService.get(productId));
