@@ -30,10 +30,7 @@ public class OrderController extends HttpServlet {
                 .getByUserId(USER_ID).getProducts(), userService.get(USER_ID));
         String userName = userService.get(USER_ID).getName();
         Long orderId = order.getOrderId();
-        shoppingCartService
-                .getByUserId(USER_ID).getProducts();
-        List<Product> allProductsInOrder = shoppingCartService
-                .getByUserId(USER_ID).getProducts();
+        List<Product> allProductsInOrder = order.getProducts();
         req.setAttribute("orderId", orderId);
         req.setAttribute("userName", userName);
         req.setAttribute("allProductsInOrder", allProductsInOrder);
