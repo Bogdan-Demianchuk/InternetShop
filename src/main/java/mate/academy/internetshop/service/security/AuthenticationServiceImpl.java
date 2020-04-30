@@ -17,9 +17,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .orElseThrow(() -> new AuthenticationException("Incorrect user or password"));
         if (userFromDb.getPassword().equals(password)) {
             return userFromDb;
-        } else {
-            throw new AuthenticationException("Incorrect login or password");
         }
-
+        throw new AuthenticationException("Incorrect login or password");
     }
 }
