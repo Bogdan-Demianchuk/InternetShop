@@ -79,7 +79,7 @@
 
     <servlet>
         <servlet-name>addProductToSoppingCard</servlet-name>
-        <servlet-class>mate.academy.internetshop.controller.shoppingcart.ShopingCartUserController</servlet-class>
+        <servlet-class>mate.academy.internetshop.controller.shoppingcart.AddProductToShoppingCartController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addProductToSoppingCard</servlet-name>
@@ -88,7 +88,7 @@
 
     <servlet>
         <servlet-name>userShoppingCart</servlet-name>
-        <servlet-class>mate.academy.internetshop.controller.shoppingcart.ShoppingCartController</servlet-class>
+        <servlet-class>mate.academy.internetshop.controller.shoppingcart.GetShoppingCartController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>userShoppingCart</servlet-name>
@@ -97,7 +97,7 @@
 
     <servlet>
         <servlet-name>deleteProductsFromShoppingCarts</servlet-name>
-        <servlet-class>mate.academy.internetshop.controller.shoppingcart.ShoppingCartDeleteProductController</servlet-class>
+        <servlet-class>mate.academy.internetshop.controller.shoppingcart.DeleteProductFromShoppingCartController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>deleteProductsFromShoppingCarts</servlet-name>
@@ -115,7 +115,7 @@
 
     <servlet>
         <servlet-name>allOrdes</servlet-name>
-        <servlet-class>mate.academy.internetshop.controller.order.OrdersAllController</servlet-class>
+        <servlet-class>mate.academy.internetshop.controller.order.GetUserOrdersController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allOrdes</servlet-name>
@@ -124,7 +124,7 @@
 
     <servlet>
         <servlet-name>doOrder</servlet-name>
-        <servlet-class>mate.academy.internetshop.controller.order.OrderController</servlet-class>
+        <servlet-class>mate.academy.internetshop.controller.order.CompleteOrderController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>doOrder</servlet-name>
