@@ -9,7 +9,7 @@ import mate.academy.internetshop.lib.Injector;
 import mate.academy.internetshop.service.OrderService;
 
 public class DeleteOrderController extends HttpServlet {
-    private static final Long USER_ID = 1L;
+    private static final String USER_ID = "user_id";
     private static final Injector INJECTOR = Injector.getInstance("mate.academy");
     private final OrderService orderService =
             (OrderService) INJECTOR.getInstance(OrderService.class);
