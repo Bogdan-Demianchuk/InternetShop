@@ -1,6 +1,6 @@
 package mate.academy.internetshop.model;
 
-import java.util.List;
+import java.util.Set;
 
 public class User {
     private Long userId;
@@ -8,7 +8,7 @@ public class User {
     private String surname;
     private String login;
     private String password;
-    private List<Role> roles;
+    private Set<Role> roles;
 
     public User(String name) {
         this.name = name;
@@ -25,11 +25,11 @@ public class User {
         this.surname = surname;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
