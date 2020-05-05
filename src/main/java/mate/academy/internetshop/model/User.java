@@ -1,20 +1,36 @@
 package mate.academy.internetshop.model;
 
+import java.util.List;
+
 public class User {
     private Long userId;
     private String name;
     private String surname;
     private String login;
     private String password;
+    private List<Role> roles;
 
     public User(String name) {
         this.name = name;
+        this.login = name;
     }
 
     public User(String name, String login, String password) {
         this.name = name;
         this.login = login;
         this.password = password;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
     }
 
     public String getSurname() {

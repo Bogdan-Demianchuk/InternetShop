@@ -28,6 +28,9 @@
         <button type="button" class="btn btn-secondary"
                 onclick="location.href='${pageContext.request.contextPath}/login'">Login
         </button>
+        <button type="button" class="btn btn-secondary"
+                onclick="location.href='${pageContext.request.contextPath}/logout'">Logout
+        </button>
 </div>
 <p></p>
 </body>

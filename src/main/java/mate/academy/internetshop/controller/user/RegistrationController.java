@@ -1,11 +1,13 @@
 package mate.academy.internetshop.controller.user;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mate.academy.internetshop.lib.Injector;
+import mate.academy.internetshop.model.Role;
 import mate.academy.internetshop.model.ShoppingCart;
 import mate.academy.internetshop.model.User;
 import mate.academy.internetshop.service.ShoppingCartService;
@@ -31,6 +33,7 @@ public class RegistrationController extends HttpServlet {
         String passwordRe = req.getParameter("pwd-re");
         if (password.equals(passwordRe)) {
             User user = new User(login, login, password);
+            user.setRoles(List.of(Role.of("USER")));
             userService.create(user);
             shoppingCartService.create(new ShoppingCart(user));
             resp.sendRedirect(req.getContextPath() + "/");
