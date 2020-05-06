@@ -28,7 +28,6 @@
                 </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/vieworder?id=${order.orderId}"><button class="btn btn-secondary">View order</button></a>
-
                 </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/deleteorder?id=${order.orderId}"><button class="btn btn-secondary">Delete order</button></a>
