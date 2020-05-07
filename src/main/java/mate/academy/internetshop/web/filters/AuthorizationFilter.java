@@ -16,8 +16,10 @@ import mate.academy.internetshop.lib.Injector;
 import mate.academy.internetshop.model.Role;
 import mate.academy.internetshop.model.User;
 import mate.academy.internetshop.service.UserService;
+import org.apache.log4j.Logger;
 
 public class AuthorizationFilter implements Filter {
+    private static final Logger LOGGER = Logger.getLogger(AuthorizationFilter.class);
     private static final String USER_ID = "user_id";
     private static final Injector INJECTOR = Injector.getInstance("mate.academy.internetshop");
     private UserService userService = (UserService) INJECTOR.getInstance(UserService.class);
@@ -32,7 +34,6 @@ public class AuthorizationFilter implements Filter {
         protectedUrls.put("allcards", Set.of(Role.RoleName.ADMIN));
         protectedUrls.put("/deleteorder", Set.of(Role.RoleName.ADMIN));
         protectedUrls.put("/shoppingcart", Set.of(Role.RoleName.USER));
-        protectedUrls.put("/users/registration", Set.of(Role.RoleName.USER));
     }
 
     @Override
@@ -56,6 +57,9 @@ public class AuthorizationFilter implements Filter {
             chain.doFilter(req, resp);
         } else {
             req.getRequestDispatcher("/WEB-INF/views/accessProhibited.jsp").forward(req, resp);
+            LOGGER.warn(user.getName() + " with id " + user.getUserId()
+                    + " chose the wrong path " + requestedUrl);
+
         }
     }
 
