@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import mate.academy.internetshop.dao.ProductDao;
+import mate.academy.internetshop.exeptions.DataProcessingException;
 import mate.academy.internetshop.lib.Dao;
 import mate.academy.internetshop.model.Product;
 import mate.academy.internetshop.util.ConnectionUtil;
@@ -26,9 +27,10 @@ public class ProductDaoJdbcImpl implements ProductDao {
             statement.setBigDecimal(2, element.getPrice());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
-            resultSet.next();
-            Long productId = resultSet.getLong(1);
-            element.setProductId(productId);
+            if (resultSet.next()) {
+                Long productId = resultSet.getLong(1);
+                element.setProductId(productId);
+            }
             return element;
         } catch (SQLException ex) {
             throw new RuntimeException("Can't create the product", ex);
@@ -44,12 +46,11 @@ public class ProductDaoJdbcImpl implements ProductDao {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 return Optional.of(getProduct(resultSet));
-            } else {
-                return Optional.empty();
             }
         } catch (SQLException ex) {
             throw new RuntimeException("Can't get the product by id", ex);
         }
+        return Optional.empty();
     }
 
     @Override
@@ -78,13 +79,12 @@ public class ProductDaoJdbcImpl implements ProductDao {
             statement.setBigDecimal(2, element.getPrice());
             statement.setLong(3, element.getProductId());
             if (statement.executeUpdate() > 0) {
-                return get(element.getProductId()).get();
+                return element;
             }
-            String ex = "Can't to update product with id " + element.getProductId();
-            throw new RuntimeException(ex);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new DataProcessingException ("Can't to update product with id");
         }
+        return element;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             statement.executeUpdate();
             return true;
         } catch (SQLException ex) {
-            throw new RuntimeException("Can't delete the product", ex);
+            throw new DataProcessingException ("Can't delete the product");
         }
     }
 
