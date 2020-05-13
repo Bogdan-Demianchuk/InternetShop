@@ -12,6 +12,12 @@ public class Product {
         this.price = BigDecimal.valueOf(price);
     }
 
+    public Product(Long productId, String name, BigDecimal price) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Poduct{" + "id=" + productId + ", name='" + name + '\'' + ", price=" + price + '}';
