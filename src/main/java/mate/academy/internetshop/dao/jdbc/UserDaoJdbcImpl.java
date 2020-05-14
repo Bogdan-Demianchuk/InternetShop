@@ -20,7 +20,7 @@ import mate.academy.internetshop.util.ConnectionUtil;
 public class UserDaoJdbcImpl implements UserDao {
     @Override
     public Optional<User> findeByLogin(String login) {
-        String query = "SELECT * FROM internet_shop.users WHERE user_login=?;";
+        String query = "SELECT * FROM users WHERE user_login=?;";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, login);
@@ -34,7 +34,7 @@ public class UserDaoJdbcImpl implements UserDao {
             }
             return Optional.empty();
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't fine login");
+            throw new DataProcessingException("Can't fine login", e);
         }
     }
 
@@ -52,7 +52,7 @@ public class UserDaoJdbcImpl implements UserDao {
             }
             return userRoles;
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get users roles");
+            throw new DataProcessingException("Can't get users roles", e);
         }
     }
 
@@ -78,8 +78,8 @@ public class UserDaoJdbcImpl implements UserDao {
                 }
             }
             return user;
-        } catch (SQLException ex) {
-            throw new RuntimeException("Can't create the product", ex);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't create the product", e);
         }
 
     }
@@ -100,7 +100,7 @@ public class UserDaoJdbcImpl implements UserDao {
             }
             return Optional.empty();
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get user with this id");
+            throw new DataProcessingException("Can't get user with this id", e);
         }
     }
 
@@ -120,7 +120,7 @@ public class UserDaoJdbcImpl implements UserDao {
             }
             return users;
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get list of users ");
+            throw new DataProcessingException("Can't get list of all users ", e);
         }
     }
 
@@ -138,7 +138,7 @@ public class UserDaoJdbcImpl implements UserDao {
             addRolesForUser(user);
             return user;
         } catch (SQLException e) {
-            throw new DataProcessingException("Cant update the user");
+            throw new DataProcessingException("Cant update the user", e);
         }
     }
 
@@ -152,7 +152,7 @@ public class UserDaoJdbcImpl implements UserDao {
                 statement.executeUpdate();
             }
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't add role to user");
+            throw new DataProcessingException("Can't add role to user", e);
         }
     }
 
@@ -163,7 +163,7 @@ public class UserDaoJdbcImpl implements UserDao {
             statement.setLong(1, user.getUserId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't delete roles user");
+            throw new DataProcessingException("Can't delete roles user", e);
         }
     }
 
@@ -176,7 +176,7 @@ public class UserDaoJdbcImpl implements UserDao {
             statement.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't delete user");
+            throw new DataProcessingException("Can't delete user", e);
         }
     }
 }

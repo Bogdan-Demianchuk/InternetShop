@@ -32,8 +32,8 @@ public class ProductDaoJdbcImpl implements ProductDao {
                 element.setProductId(productId);
             }
             return element;
-        } catch (SQLException ex) {
-            throw new DataProcessingException("Can't create the product");
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't create the product", e);
         }
     }
 
@@ -47,8 +47,8 @@ public class ProductDaoJdbcImpl implements ProductDao {
             if (resultSet.next()) {
                 return Optional.of(getProduct(resultSet));
             }
-        } catch (SQLException ex) {
-            throw new DataProcessingException("Can't get the product by id");
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't get the product by id", e);
         }
         return Optional.empty();
     }
@@ -65,7 +65,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             }
             return productList;
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get the all products");
+            throw new DataProcessingException("Can't get the all products", e);
         }
     }
 
@@ -82,7 +82,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
                 return element;
             }
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't to update product with id");
+            throw new DataProcessingException("Can't to update product with id", e);
         }
         return element;
     }
@@ -95,8 +95,8 @@ public class ProductDaoJdbcImpl implements ProductDao {
             statement.setLong(1, elementId);
             statement.executeUpdate();
             return true;
-        } catch (SQLException ex) {
-            throw new DataProcessingException("Can't delete the product");
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't delete the product", e);
         }
     }
 
