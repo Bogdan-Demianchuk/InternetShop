@@ -36,11 +36,11 @@ public class ShoppingCart {
 
     @Override
     public String toString() {
-        return "ShoppingCart{" +
-                "shoppingCartId=" + shoppingCartId +
-                ", userId=" + userId +
-                ", products=" + products +
-                '}';
+        return "ShoppingCart{"
+                + "shoppingCartId=" + shoppingCartId
+                + ", userId=" + userId
+                + ", products=" + products
+                + '}';
     }
 
     public Long getUserId() {

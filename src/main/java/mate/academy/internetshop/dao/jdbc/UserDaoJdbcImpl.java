@@ -40,9 +40,9 @@ public class UserDaoJdbcImpl implements UserDao {
 
     private Set<Role> getUsersRole(Long userId) {
         Set<Role> userRoles = new HashSet<>();
-        String query = "SELECT roles.role_name FROM users_roles " +
-                "INNER JOIN roles ON  users_roles.role_id=roles.role_id " +
-                "WHERE users_roles.user_id = ?;";
+        String query = "SELECT roles.role_name FROM users_roles "
+                + "INNER JOIN roles ON  users_roles.role_id=roles.role_id "
+                + "WHERE users_roles.user_id = ?;";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setLong(1, userId);
@@ -70,7 +70,7 @@ public class UserDaoJdbcImpl implements UserDao {
             if (resultSet.next()) {
                 user.setUserId(resultSet.getLong(1));
                 for (Role role : user.getRoles()) {
-                    query = "INSERT INTO internet_shop.users_roles (user_id, role_id) values(?,?);";
+                    query = "INSERT INTO users_roles (user_id, role_id) values(?,?);";
                     statement = connection.prepareStatement(query);
                     statement.setLong(1, user.getUserId());
                     statement.setLong(2, role.getId());
@@ -126,7 +126,8 @@ public class UserDaoJdbcImpl implements UserDao {
 
     @Override
     public User update(User user) {
-        String query = "UPDATE users SET user_name=?, user_login=?, user_password=? WHERE user_id=?;";
+        String query = "UPDATE users SET user_name=?, user_login=?, user_password=?"
+                + "WHERE user_id=?;";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, user.getName());

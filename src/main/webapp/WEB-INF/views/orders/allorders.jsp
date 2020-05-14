@@ -24,7 +24,7 @@
                     <c:out value="${order.orderId}"/>
                 </td>
                 <td>
-                    <c:out value="${order.user.name}"/>
+                    <c:out value="${order.userId}"/>
                 </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/vieworder?id=${order.orderId}"><button class="btn btn-secondary">View order</button></a>

@@ -28,7 +28,7 @@ public class GetUserOrdersController extends HttpServlet {
         if (userService.get(userId).getRoles().contains(Role.RoleName.ADMIN)) {
             allOrders = orderService.getAll();
         } else {
-            allOrders = orderService.getUserOrders(userService.get(userId));
+            allOrders = orderService.getUserOrders(userId);
         }
         req.setAttribute("allOrders", allOrders);
         req.getRequestDispatcher("/WEB-INF/views/orders/allorders.jsp").forward(req, resp);

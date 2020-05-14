@@ -7,7 +7,6 @@ import mate.academy.internetshop.dao.Storage;
 import mate.academy.internetshop.dao.UserDao;
 import mate.academy.internetshop.model.User;
 
-
 public class UserDaoImpl implements UserDao {
     @Override
     public User create(User user) {

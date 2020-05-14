@@ -7,7 +7,6 @@ import mate.academy.internetshop.dao.ShoppingCartDao;
 import mate.academy.internetshop.dao.Storage;
 import mate.academy.internetshop.model.ShoppingCart;
 
-
 public class ShoppingCartDaoImpl implements ShoppingCartDao {
 
     @Override
