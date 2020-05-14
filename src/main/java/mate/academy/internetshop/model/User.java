@@ -5,10 +5,17 @@ import java.util.Set;
 public class User {
     private Long userId;
     private String name;
-    private String surname;
     private String login;
     private String password;
     private Set<Role> roles;
+
+    public User(Long userId, String name, String login, String password, Set<Role> roles) {
+        this.userId = userId;
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.roles = roles;
+    }
 
     public User(String name) {
         this.name = name;
@@ -21,20 +28,12 @@ public class User {
         this.password = password;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
     public Set<Role> getRoles() {
         return roles;
-    }
-
-    public String getSurname() {
-        return surname;
     }
 
     public String getLogin() {

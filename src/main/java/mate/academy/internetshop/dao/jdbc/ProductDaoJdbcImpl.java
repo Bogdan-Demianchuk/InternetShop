@@ -33,7 +33,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             }
             return element;
         } catch (SQLException ex) {
-            throw new RuntimeException("Can't create the product", ex);
+            throw new DataProcessingException("Can't create the product");
         }
     }
 
@@ -48,7 +48,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
                 return Optional.of(getProduct(resultSet));
             }
         } catch (SQLException ex) {
-            throw new RuntimeException("Can't get the product by id", ex);
+            throw new DataProcessingException("Can't get the product by id");
         }
         return Optional.empty();
     }
@@ -65,7 +65,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             }
             return productList;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new DataProcessingException("Can't get the all products");
         }
     }
 
