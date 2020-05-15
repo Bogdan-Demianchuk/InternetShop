@@ -28,7 +28,7 @@ public class CompleteOrderController extends HttpServlet {
             throws ServletException, IOException {
         Long userId = (Long) req.getSession().getAttribute(USER_ID);
         Order order = orderService.completeOrder(shoppingCartService
-                .getByUserId(userId).getProducts(), userService.get(userId));
+                .getByUserId(userId).getProducts(), userId);
         String userName = userService.get(userId).getName();
         Long orderId = order.getOrderId();
         List<Product> allProductsInOrder = order.getProducts();

@@ -35,7 +35,7 @@ public class RegistrationController extends HttpServlet {
             User user = new User(login, login, password);
             user.setRoles(Set.of(Role.of("USER")));
             userService.create(user);
-            shoppingCartService.create(new ShoppingCart(user));
+            shoppingCartService.create(new ShoppingCart(user.getUserId()));
             resp.sendRedirect(req.getContextPath() + "/");
         } else {
             req.setAttribute("massage", "Passwords are not the same, please write correct");
