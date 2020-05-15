@@ -73,6 +73,9 @@ public class UserDaoJdbcImpl implements UserDao {
                     query = "INSERT INTO users_roles (user_id, role_id) values(?,?);";
                     statement = connection.prepareStatement(query);
                     statement.setLong(1, user.getUserId());
+                    if (role.getId() == null) {
+                        role.setId(getRoleId(role.getRoleName(), connection));
+                    }
                     statement.setLong(2, role.getId());
                     statement.executeUpdate();
                 }
@@ -81,7 +84,15 @@ public class UserDaoJdbcImpl implements UserDao {
         } catch (SQLException e) {
             throw new DataProcessingException("Can't create the product", e);
         }
+    }
 
+    private Long getRoleId(Role.RoleName roleName, Connection connection) throws SQLException {
+        String query = "SELECT role_id FROM roles WHERE role_name = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, roleName.toString());
+        ResultSet resultSet = statement.executeQuery();
+        resultSet.next();
+        return resultSet.getLong("role_id");
     }
 
     @Override
@@ -145,7 +156,7 @@ public class UserDaoJdbcImpl implements UserDao {
 
     private void addRolesForUser(User user) {
         try (Connection connection = ConnectionUtil.getConnection()) {
-            for (Role role: user.getRoles()) {
+            for (Role role : user.getRoles()) {
                 String query = "INSERT INTO users_roles (user_id, role_id) values(?,?);";
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setLong(1, user.getUserId());

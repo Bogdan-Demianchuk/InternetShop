@@ -96,23 +96,34 @@ public class ShoppingCardDaoJdbcImpl implements ShoppingCartDao {
 
     @Override
     public ShoppingCart update(ShoppingCart shoppingCart) {
+        deleteProductsFromShoppingCartProducts(shoppingCart.getShoppingCartId());
+        addProductToShoppingCart(shoppingCart);
+        return shoppingCart;
+    }
+
+    private void addProductToShoppingCart(ShoppingCart shoppingCart) {
+        String query = "INSERT INTO  shopping_carts_products(cart_id, product_id) values(?, ?);";
         try (Connection connection = ConnectionUtil.getConnection()) {
-            String queryDel = "DELETE FROM shopping_carts_products WHERE cart_id = ?;";
-            PreparedStatement statement = connection.prepareStatement(queryDel);
-            statement.setLong(1, shoppingCart.getShoppingCartId());
-            statement.executeUpdate();
             for (Product product : shoppingCart.getProducts()) {
-                String queryAdd = "INSERT INTO  shopping_carts_products(cart_id, product_id) "
-                        + "values(?, ?);";
-                statement = connection.prepareStatement(queryAdd);
+                PreparedStatement statement = connection.prepareStatement(query);
                 statement.setLong(1, shoppingCart.getShoppingCartId());
                 statement.setLong(2, product.getProductId());
                 statement.executeUpdate();
             }
         } catch (SQLException e) {
+            throw new DataProcessingException("Can't add the products to shopping cart", e);
+        }
+    }
+
+    private void deleteProductsFromShoppingCartProducts(Long ShoppingCartId) {
+        String query = "DELETE FROM shopping_carts_products WHERE cart_id = ?;";
+        try (Connection connection = ConnectionUtil.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setLong(1, ShoppingCartId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
             throw new DataProcessingException("Can't delete products from shopping cart", e);
         }
-        return shoppingCart;
     }
 
     @Override
