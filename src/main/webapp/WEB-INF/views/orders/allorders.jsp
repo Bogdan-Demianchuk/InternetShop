@@ -13,7 +13,7 @@
         <thead>
         <tr>
             <th>Order ID</th>
-            <th>Order name</th>
+            <th>User ID</th>
             <th>products in order</th>
             <th></th>
         </tr>

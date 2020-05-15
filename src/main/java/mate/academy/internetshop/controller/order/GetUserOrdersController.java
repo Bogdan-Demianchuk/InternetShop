@@ -25,7 +25,7 @@ public class GetUserOrdersController extends HttpServlet {
             throws ServletException, IOException {
         Long userId = (Long) req.getSession().getAttribute(USER_ID);
         List<Order> allOrders;
-        if (userService.get(userId).getRoles().contains(Role.RoleName.ADMIN)) {
+        if (userService.get(userId).getRoles().contains(Role.of("ADMIN"))) {
             allOrders = orderService.getAll();
         } else {
             allOrders = orderService.getUserOrders(userId);

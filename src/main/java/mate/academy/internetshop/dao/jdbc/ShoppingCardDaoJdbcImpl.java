@@ -116,7 +116,7 @@ public class ShoppingCardDaoJdbcImpl implements ShoppingCartDao {
     }
 
     private void deleteProductsFromShoppingCartProducts(Long shoppingCartId) {
-        String query = "DELETE FROM shopping_carts_products WHERE cart_id = ?;";
+        String query = "DELETE FROM internet_shop.shopping_carts_products WHERE cart_id=?;";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setLong(1, shoppingCartId);

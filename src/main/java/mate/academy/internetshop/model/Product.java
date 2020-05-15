@@ -1,6 +1,7 @@
 package mate.academy.internetshop.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Product {
     private Long productId;
@@ -16,6 +17,25 @@ public class Product {
         this.productId = productId;
         this.name = name;
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Product product = (Product) o;
+        return productId.equals(product.productId)
+                && name.equals(product.name)
+                && price.equals(product.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productId, name, price);
     }
 
     @Override
