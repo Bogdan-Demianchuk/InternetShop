@@ -115,11 +115,11 @@ public class ShoppingCardDaoJdbcImpl implements ShoppingCartDao {
         }
     }
 
-    private void deleteProductsFromShoppingCartProducts(Long ShoppingCartId) {
+    private void deleteProductsFromShoppingCartProducts(Long shoppingCartId) {
         String query = "DELETE FROM shopping_carts_products WHERE cart_id = ?;";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setLong(1, ShoppingCartId);
+            statement.setLong(1, shoppingCartId);
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new DataProcessingException("Can't delete products from shopping cart", e);
