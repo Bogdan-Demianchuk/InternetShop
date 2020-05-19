@@ -184,13 +184,4 @@
         <filter-name>authorizationFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-    <servlet>
-        <servlet-name>db</servlet-name>
-        <servlet-class>mate.academy.internetshop.controller.dbConnectionController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>db</servlet-name>
-        <url-pattern>/db</url-pattern>
-    </servlet-mapping>
 </web-app>

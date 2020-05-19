@@ -30,6 +30,7 @@ public class UserDaoJdbcImpl implements UserDao {
                         resultSet.getString("user_name"),
                         resultSet.getString("user_login"),
                         resultSet.getString("user_password"),
+                        resultSet.getBytes("user_salt"),
                         getUsersRole(resultSet.getLong("user_id"))));
             }
             return Optional.empty();
@@ -58,13 +59,15 @@ public class UserDaoJdbcImpl implements UserDao {
 
     @Override
     public User create(User user) {
-        String query = "INSERT INTO users (user_name, user_login, user_password) VALUES (?, ?, ?);";
+        String query = "INSERT INTO users (user_name, user_login, user_password, user_salt) "
+                + "VALUES (?, ?, ?, ?);";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(query,
                     PreparedStatement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getName());
             statement.setString(2, user.getLogin());
             statement.setString(3, user.getPassword());
+            statement.setBytes(4, user.getSalt());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -107,6 +110,7 @@ public class UserDaoJdbcImpl implements UserDao {
                         resultSet.getString("user_name"),
                         resultSet.getString("user_login"),
                         resultSet.getString("user_password"),
+                        resultSet.getBytes("user_salt"),
                         getUsersRole(resultSet.getLong("user_id"))));
             }
             return Optional.empty();
@@ -127,6 +131,7 @@ public class UserDaoJdbcImpl implements UserDao {
                         resultSet.getString("user_name"),
                         resultSet.getString("user_login"),
                         resultSet.getString("user_password"),
+                        resultSet.getBytes("user_salt"),
                         getUsersRole(resultSet.getLong("user_id"))));
             }
             return users;
@@ -137,14 +142,15 @@ public class UserDaoJdbcImpl implements UserDao {
 
     @Override
     public User update(User user) {
-        String query = "UPDATE users SET user_name=?, user_login=?, user_password=?"
+        String query = "UPDATE users SET user_name=?, user_login=?, user_password=?, salt=?"
                 + "WHERE user_id=?;";
         try (Connection connection = ConnectionUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, user.getName());
             statement.setString(2, user.getLogin());
             statement.setString(3, user.getPassword());
-            statement.setLong(4, user.getUserId());
+            statement.setBytes(4, user.getSalt());
+            statement.setLong(5, user.getUserId());
             statement.executeUpdate();
             deleteRolesOfUser(user);
             addRolesForUser(user);
