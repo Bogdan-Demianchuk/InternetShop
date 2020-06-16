@@ -3,7 +3,7 @@ package mate.academy.internetshop.model;
 import java.util.Objects;
 
 public class Role {
-    private Long id;
+    private Long roleId;
     private RoleName roleName;
 
     public Role(RoleName roleName) {
@@ -11,7 +11,7 @@ public class Role {
     }
 
     public Long getId() {
-        return id;
+        return roleId;
     }
 
     public static Role of(String roleName) {
@@ -19,7 +19,7 @@ public class Role {
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.roleId = id;
     }
 
     public RoleName getRoleName() {
@@ -39,13 +39,13 @@ public class Role {
             return false;
         }
         Role role = (Role) o;
-        return Objects.equals(id, role.id)
+        return Objects.equals(roleId, role.roleId)
                 && roleName == role.roleName;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, roleName);
+        return Objects.hash(roleId, roleName);
     }
 
     public enum RoleName {

@@ -7,3 +7,8 @@ script:
 cache:
   directories:
     - $HOME/.m2
+      sonarcloud:
+        organization: "bogdan-demianchuk"
+        token:
+          secure: d5fa08385ff39ed821194ce9850bd634a8199577 # encrypted value of your token
+
