@@ -7,7 +7,7 @@
 </head>
 <body style="margin:70px;">
 <div class="container">
-    <jsp:include page="menu.jsp"/>
+    <jsp:include page="${menus}"/>
         <h1>Page not for you</h1>
 
 </body>

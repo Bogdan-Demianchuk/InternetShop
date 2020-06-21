@@ -7,7 +7,7 @@
 </head>
 <body style="margin:70px;">
 <div class="container">
-    <jsp:include page="../menu.jsp"/>
+    <jsp:include page="../${menus}"/>
     <h3>Add product</h3>
     <form method="post" action="${pageContext.request.contextPath}/products/add">
         <div class="form-group">
@@ -36,7 +36,7 @@
                     <c:out value="${product.price}"/>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/deleteProduct?id=${product.productId}"><button class="btn btn-secondary">Delete from shop</button></a>
+                    <a href="${pageContext.request.contextPath}/products/delete?id=${product.productId}"><button class="btn btn-secondary">Delete from shop</button></a>
                 </td>
             </tr>
         </c:forEach>

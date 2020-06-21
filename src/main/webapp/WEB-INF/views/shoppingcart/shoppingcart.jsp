@@ -7,7 +7,7 @@
 </head>
 <body style="margin:70px;">
 <div class="container">
-    <jsp:include page="../menu.jsp"/>
+    <jsp:include page="../${menus}"/>
     <h1>All products in shopping cart ${userName}</h1>
     <table class="table table-hover">
         <thead>
@@ -35,7 +35,7 @@
             </tr>
         </c:forEach>
     </table>
-    <a href="${pageContext.request.contextPath}/doorder"> <button type="button">Make order</button></a>
+    <a href="${pageContext.request.contextPath}/orders/completeorder"> <button type="button">Make order</button></a>
 </div>
 </body>
 </html>

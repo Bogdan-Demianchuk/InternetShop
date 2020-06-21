@@ -7,7 +7,7 @@
 </head>
 <body style="margin:70px;">
 <div class="container">
-    <jsp:include page="../menu.jsp"/>
+    <jsp:include page="../${menus}"/>
     <h1>Order</h1>
     <h2>Thank ${userName} for your order it number №${orderId} don't forget it</h2>
     <table class="table table-hover">

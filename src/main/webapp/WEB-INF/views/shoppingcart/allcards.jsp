@@ -7,7 +7,7 @@
 </head>
 <body style="margin:70px;">
 <div class="container">
-    <jsp:include page="../menu.jsp"/>
+    <jsp:include page="../${menus}"/>
     <h1>All cards</h1>
     <table class="table table-hover">
         <thead>
@@ -23,13 +23,10 @@
                     <c:out value="${shoppingCart.shoppingCartId}"/>
                 </td>
                 <td>
-                    <c:out value="${shoppingCart.user}"/>
+                    <c:out value="${shoppingCart.userId}"/>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/products/addtocard?id=${product.productId}"><button class="btn btn-secondary">Products in shopping cart</button></a>
-                </td>
-                <td>
-                    <a href="${pageContext.request.contextPath}/deleteProduct?id=${product.productId}"><button class="btn btn-secondary">Delete shopping cart</button></a>
+                    <a href="${pageContext.request.contextPath}/shoppingcart/getproducts?id=${shoppingCart.userId}"><button class="btn btn-secondary">Products in shopping cart</button></a>
                 </td>
             </tr>
         </c:forEach>

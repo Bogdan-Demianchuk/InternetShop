@@ -7,7 +7,7 @@
 </head>
 <body style="margin:70px;">
 <div class="container">
-    <jsp:include page="../menu.jsp"/>
+    <jsp:include page="../${menus}"/>
     <h1>All users</h1>
     <table class="table table-hover">
         <thead>
@@ -25,7 +25,7 @@
                 <c:out value="${user.name}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/deleteUser?id=${user.userId}"><button class="btn btn-secondary">Delete</button></a>
+                <a href="${pageContext.request.contextPath}/users/delete?id=${user.userId}"><button class="btn btn-secondary">Delete</button></a>
             </td>
         </tr>
     </c:forEach>

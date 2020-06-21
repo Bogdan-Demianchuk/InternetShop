@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,9 +9,8 @@
 </head>
 <body style="margin:70px;">
 <div class="container">
-    <jsp:include page="menu.jsp"/>
+    <jsp:include page="${menus}"/>
     <h1>Hello world! Now ${date}</h1>
-
 </div>
 </body>
 </html>
