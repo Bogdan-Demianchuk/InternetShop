@@ -35,7 +35,7 @@
             </tr>
         </c:forEach>
     </table>
-    <a href="${pageContext.request.contextPath}/doorder"> <button type="button">Make order</button></a>
+    <a href="${pageContext.request.contextPath}/orders/complite-order"> <button type="button">Make order</button></a>
 </div>
 </body>
 </html>

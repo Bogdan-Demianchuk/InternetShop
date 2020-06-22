@@ -9,16 +9,19 @@
             Index
         </button>
         <button type="button" class="btn btn-secondary"
-                onclick="location.href='${pageContext.request.contextPath}/InjectData'">Generate data
+                onclick="location.href='${pageContext.request.contextPath}/inject-data'">Generate data
         </button>
         <button type="button" class="btn btn-secondary"
-                onclick="location.href='${pageContext.request.contextPath}/products'">All products
+                onclick="location.href='${pageContext.request.contextPath}/products'">View products
         </button>
         <button type="button" class="btn btn-secondary"
-                onclick="location.href='${pageContext.request.contextPath}/users/all'">All users
+                onclick="location.href='${pageContext.request.contextPath}/products/add'">Edit products
         </button>
         <button type="button" class="btn btn-secondary"
-                onclick="location.href='${pageContext.request.contextPath}/allorders'">All orders
+                onclick="location.href='${pageContext.request.contextPath}/users'">All users
+        </button>
+        <button type="button" class="btn btn-secondary"
+                onclick="location.href='${pageContext.request.contextPath}/orders'">All orders
         </button>
         <button type="button" class="btn btn-secondary"
                 onclick="location.href='${pageContext.request.contextPath}/shoppingcart'">Shopping cart

@@ -9,7 +9,6 @@
 <div class="container">
     <jsp:include page="../menu.jsp"/>
     <h1>All products</h1>
-    <a href="${pageContext.request.contextPath}/products/add"><button class="btn btn-primary">Add new product or delete as admin</button></a>
 <table class="table table-hover">
     <thead>
     <tr>

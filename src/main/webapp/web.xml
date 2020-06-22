@@ -19,7 +19,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>users</servlet-name>
-        <url-pattern>/users/all</url-pattern>
+        <url-pattern>/users</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -46,7 +46,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>injectData</servlet-name>
-        <url-pattern>/InjectData</url-pattern>
+        <url-pattern>/inject-data</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -104,14 +104,6 @@
         <url-pattern>/shoppingcart/deleteproduct</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>allShoppingCarts</servlet-name>
-        <servlet-class>mate.academy.internetshop.controller.shoppingcart.GetAllShoppingCartsController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>allShoppingCarts</servlet-name>
-        <url-pattern>/shoppingcart/allcards</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>allUserOrdes</servlet-name>
@@ -128,7 +120,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>doOrder</servlet-name>
-        <url-pattern>/orders/compliteorder</url-pattern>
+        <url-pattern>/orders/complite-order</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -137,7 +129,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>viewOrder</servlet-name>
-        <url-pattern>/orders/vieworder</url-pattern>
+        <url-pattern>/orders/view-order</url-pattern>
     </servlet-mapping>
 
     <servlet>

@@ -27,10 +27,7 @@
                     <c:out value="${order.userId}"/>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/vieworder?id=${order.orderId}"><button class="btn btn-secondary">View order</button></a>
-                </td>
-                <td>
-                    <a href="${pageContext.request.contextPath}/deleteorder?id=${order.orderId}"><button class="btn btn-secondary">Delete order</button></a>
+                    <a href="${pageContext.request.contextPath}/orders/view-order?id=${order.orderId}"><button class="btn btn-secondary">View order</button></a>
                 </td>
             </tr>
         </c:forEach>
