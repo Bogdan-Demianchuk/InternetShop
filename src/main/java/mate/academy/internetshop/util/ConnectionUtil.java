@@ -9,6 +9,7 @@ public class ConnectionUtil {
     private static final String PASSWORD = "4ad5dbc3";
     private static final String URL = "jdbc:mysql://eu-cdbr-west-03.cleardb.net/"
             + "heroku_17fce8ecbbe6750?serverTimezone=UTC";
+
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
