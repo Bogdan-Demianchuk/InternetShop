@@ -9,8 +9,7 @@
 <body style="margin:70px;">
 <div class="container">
     <jsp:include page="menu.jsp"/>
-    <h1>Hello world! Now ${date}</h1>
-
+    <h1>Hello online shop</h1>
 </div>
 </body>
 </html>

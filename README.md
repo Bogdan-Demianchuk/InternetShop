@@ -1,4 +1,6 @@
-# Internet Shop 
+# Internet Shop
+**[This project  on Heroku cloud platform](https://demianchuk-internet-shop.herokuapp.com/)** <br>
+![Header Image](src/main/resources/shop.jpg)
 [Project purpose](#purpose)<br>
 [Project structure](#structure)<br>
 [Available functions](#avaiable_functions)<br>

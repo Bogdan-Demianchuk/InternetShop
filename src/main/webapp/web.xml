@@ -120,7 +120,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>doOrder</servlet-name>
-        <url-pattern>/orders/complite-order</url-pattern>
+        <url-pattern>/orders/complete-order</url-pattern>
     </servlet-mapping>
 
     <servlet>

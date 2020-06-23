@@ -16,7 +16,7 @@
         </div>
         <a href="${pageContext.request.contextPath}/products"><button class="btn btn-primary" type="submit" >Add product</button></a>
     </form>
-    <table class="table table-hover">
+    <table class="table table-hover table-dark">
         <thead>
         <tr>
             <th>ID</th>

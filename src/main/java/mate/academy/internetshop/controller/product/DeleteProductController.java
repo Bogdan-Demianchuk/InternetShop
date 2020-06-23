@@ -22,6 +22,6 @@ public class DeleteProductController extends HttpServlet {
         productService.delete(id);
         List<Product> allProducts = productService.getAll();
         req.setAttribute("allProducts", allProducts);
-        resp.sendRedirect(req.getContextPath() + "products/delete");
+        resp.sendRedirect(req.getContextPath() + "/products/add");
     }
 }

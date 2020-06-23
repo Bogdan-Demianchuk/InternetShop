@@ -31,8 +31,10 @@ public class InjectDataController extends HttpServlet {
             user1.setRoles(Set.of(Role.of("USER")));
             userService.create(user1);
         }
-        Product junior = new Product("Java developer", new BigDecimal(800));
-        productService.create(junior);
+        Product nachosWithCheese = new Product("Nachos with cheese", new BigDecimal(20));
+        productService.create(nachosWithCheese);
+        Product nachosWithTomatoes = new Product("Nachos with tomatoes", new BigDecimal(15));
+        productService.create(nachosWithTomatoes);
         req.getRequestDispatcher("/WEB-INF/views/injectData.jsp").forward(req, resp);
     }
 }

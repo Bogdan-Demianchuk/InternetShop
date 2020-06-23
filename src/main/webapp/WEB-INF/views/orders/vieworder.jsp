@@ -10,7 +10,7 @@
     <jsp:include page="../menu.jsp"/>
     <h1>Order</h1>
     <h2>Thank ${userName} for your order it number №${orderId} don't forget it</h2>
-    <table class="table table-hover">
+    <table class="table table-hover table-dark">
         <thead>
         <tr>
             <th>product ID</th>

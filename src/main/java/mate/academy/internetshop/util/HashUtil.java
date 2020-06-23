@@ -3,10 +3,8 @@ package mate.academy.internetshop.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import org.apache.log4j.Logger;
 
 public class HashUtil {
-    private static Logger logger = Logger.getLogger(HashUtil.class);
     private static final String SHA = "SHA-512";
 
     public static byte[] getSalt() {
@@ -16,7 +14,7 @@ public class HashUtil {
         return salt;
     }
 
-    public static String hashPassword(String password, byte [] salt) {
+    public static String hashPassword(String password, byte[] salt) {
         StringBuilder hashedPassword = new StringBuilder();
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(SHA);
@@ -26,7 +24,7 @@ public class HashUtil {
                 hashedPassword.append(String.format("%02x", b));
             }
         } catch (NoSuchAlgorithmException e) {
-            logger.error(e);
+            System.out.println(e);
         }
         return hashedPassword.toString();
     }

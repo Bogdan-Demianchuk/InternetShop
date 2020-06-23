@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConnectionUtil {
     private static final String USER = "bc49dbe2ec8a70";
     private static final String PASSWORD = "4ad5dbc3";
-    private static final String URL = "jdbc:mysql://eu-cdbr-west-03.cleardb.net/"
+    private static final String URL = "jdbc:mysql://eu-cdbr-west-03.cleardb.net:3306/"
             + "heroku_17fce8ecbbe6750?serverTimezone=UTC";
 
     static {

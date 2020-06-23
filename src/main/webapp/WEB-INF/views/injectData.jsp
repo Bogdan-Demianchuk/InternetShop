@@ -11,7 +11,7 @@
     <h1>Added to the database:</h1>
     <h4>User with the role -admin login:"admin" password:"admin"</h4>
     <h4>User with the role -user login:"user" password: "user"</h4>
-    <h4>And one product.</h4>
+    <h4>And some products.</h4>
 
 
 </body>

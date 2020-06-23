@@ -9,7 +9,7 @@
 <div class="container">
     <jsp:include page="../menu.jsp"/>
     <h1>All Orders</h1>
-    <table class="table table-hover">
+    <table class="table table-hover table-dark">
         <thead>
         <tr>
             <th>Order ID</th>
